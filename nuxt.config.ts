@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   ],
   css: ['~/assets/app.css'],
   app: {
-    baseURL: '/invisiblesun/', // 與 repo 名稱一致
+    baseURL: process.env.NUXT_APP_BASE_URL || '/',
   },
   nitro: {
     preset: 'static',
