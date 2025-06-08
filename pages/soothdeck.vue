@@ -9,38 +9,13 @@
         <div class="text-gray-500 text-xs text-center">{{ card.desc }}</div>
       </div>
     </div>
-    <!-- Modal -->
-    <a-modal v-model:open="showModal" :footer="null" width="750px" centered>
-      <template #title>
-        <span>{{ selectedCard?.ori_name }} - {{ selectedCard?.name }}</span>
-      </template>
-      <div v-if="selectedCard" class="text-black">
-        <img :src="getImage(selectedCard.ori_name)" :alt="selectedCard.ori_name" class="w-180 h-180" />
-        <div class="mb-2 text-lg text-center italic text-gray-700">數值：{{ selectedCard.value }}</div>
-        <div class="mb-2 text-center">
-          <span class="font-bold">主題：</span>
-          <span v-if="Array.isArray(selectedCard.title)">{{ selectedCard.title.join(' • ') }}</span>
-          <span v-else>{{ selectedCard.title }}</span>
-        </div>
-        <div class="mb-2"><span class="font-bold">含義：</span>{{ selectedCard.mean }}</div>
-        <hr class="my-4" />
-        <div class="mb-4 whitespace-pre-line">
-          <span v-if="Array.isArray(selectedCard.explain)">{{ selectedCard.explain.join('\n') }}</span>
-          <span v-else>{{ selectedCard.explain }}</span>
-        </div>
-        <hr class="my-4" />
-        <div class="mb-2"><span class="font-bold">占卜：</span>{{ selectedCard.divination }}</div>
-        <div class="mb-2"><span class="font-bold">遊戲敘述：</span>{{ selectedCard.narration }}</div>
-        <div class="mb-2"><span class="font-bold">喜悅：</span>{{ selectedCard.joy }}</div>
-        <div class="mb-2"><span class="font-bold">絕望：</span>{{ selectedCard.despair }}</div>
-      </div>
-    </a-modal>
+    <SoothModal :open="showModal" :card="selectedCard" @close="showModal = false" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { Modal } from 'ant-design-vue'
+import SoothModal from '@/components/SoothModal.vue'
 
 const cards = ref<any[]>([])
 const showModal = ref(false)
