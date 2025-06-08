@@ -22,12 +22,11 @@ const isProd = process.env.NODE_ENV === 'production'
 const base = isProd && config.app && config.app.baseURL ? config.app.baseURL.replace(/\/$/, '') : ''
 
 onMounted(() => {
-  // 自動化檢查 baseURL 是否正確
-  // 部屬後可於瀏覽器 console 看到
-  // 若 baseURL 為 /invisiblesun/ 則代表 .env.production 有生效
-  // 若 baseURL 為 / 則代表本地或 .env 未生效
-  // eslint-disable-next-line no-console
-  console.log('NUXT_APP_BASE_URL:', config.app.baseURL)
+  // 僅於 client 端 console.log baseURL
+  if (process.client) {
+    // eslint-disable-next-line no-console
+    console.log('NUXT_APP_BASE_URL:', config.app.baseURL)
+  }
 })
 </script>
 

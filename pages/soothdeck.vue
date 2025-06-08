@@ -60,9 +60,10 @@ function openModal(card: any) {
 }
 
 onMounted(async () => {
-  // Nuxt 3 靜態資源應放在 public 目錄，assets 目錄不會被直接公開
-  const res = await fetch(`${base}/soothdeck.json`)
-  cards.value = await res.json()
+  if (process.client) {
+    const res = await fetch(`${base}/soothdeck.json`)
+    cards.value = await res.json()
+  }
 })
 </script>
 
