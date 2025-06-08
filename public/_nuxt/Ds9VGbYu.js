@@ -1,0 +1,1 @@
+import{g as n,c as o,o as s,a as t,F as a}from"./CJETXRqL.js";import{_ as r}from"./DlAUqK2U.js";const p=n({__name:"index",setup(l){return(m,e)=>(s(),o(a,null,[e[0]||(e[0]=t("h1",null,"歡迎來到 Nuxt 3！",-1)),e[1]||(e[1]=t("p",null,"這是首頁，Nuxt 基本環境已建置完成。",-1))],64))}}),d=r(p,[["__scopeId","data-v-c853997d"]]);export{d as default};
