@@ -1,7 +1,9 @@
 <template>
   <div>
     <Menu />
-    <NuxtPage />
+    <div class="ml-48">
+      <NuxtPage />
+    </div>
   </div>
 </template>
 

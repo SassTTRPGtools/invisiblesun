@@ -1,8 +1,8 @@
 <template>
-  <div class="p-6 max-w-7xl mx-auto">
+  <div class="p-6 max-w-7xl mx-auto flex flex-col items-center justify-center min-h-[80vh] pl-[20px]">
     <h1 class="text-3xl font-bold mb-6 text-center">顯真牌一覽</h1>
-    <div class="grid grid-cols-5 grid-rows-5 gap-4">
-      <div v-for="card in cards.slice(0, 25)" :key="card.ori_name" class="bg-white rounded-lg shadow hover:shadow-lg transition p-2 flex flex-col items-center">
+    <div class="grid grid-cols-5 grid-rows-5 gap-4 justify-center items-center">
+      <div v-for="card in cards.slice(0, 60)" :key="card.ori_name" class="bg-white rounded-lg shadow hover:shadow-lg transition p-2 flex flex-col items-center">
         <img :src="getImage(card.ori_name)" :alt="card.ori_name" class="w-36 h-36 cursor-pointer" @click="openModal(card)" />
         <div class="text-base font-semibold mb-1 text-center">{{ card.ori_name }}</div>
         <div class="text-gray-700 text-xs mb-1 text-center">{{ card.name }}</div>
