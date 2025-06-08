@@ -41,12 +41,12 @@ jobs:
         run: npm run generate
       - name: Add .nojekyll
         run: |
-          mkdir -p .output/public
-          touch .output/public/.nojekyll
+          mkdir -p dist
+          touch dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: dist
 
   # Deployment job
   deploy:

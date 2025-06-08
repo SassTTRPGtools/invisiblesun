@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'static',
     output: {
-      dir: '.output/public'
+      dir: './dist'
     }
   },
 })
