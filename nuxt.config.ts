@@ -11,10 +11,4 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/invisiblesun/",
   },
-  nitro: {
-    preset: 'static',
-    output: {
-      dir: './dist'
-    }
-  },
 })
