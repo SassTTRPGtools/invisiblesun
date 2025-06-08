@@ -46,9 +46,12 @@ const cards = ref<any[]>([])
 const showModal = ref(false)
 const selectedCard = ref<any>(null)
 
+import { useRuntimeConfig } from '#imports'
+const config = useRuntimeConfig()
+const base = config.app && config.app.baseURL ? config.app.baseURL.replace(/\/$/, '') : ''
+
 const getImage = (oriName: string) => {
-  // 取出數字與名稱，組合成檔名
-  return `/soothdeck/${oriName}.webp`
+  return `${base}/soothdeck/${oriName}.webp`
 }
 
 function openModal(card: any) {
@@ -58,7 +61,7 @@ function openModal(card: any) {
 
 onMounted(async () => {
   // Nuxt 3 靜態資源應放在 public 目錄，assets 目錄不會被直接公開
-  const res = await fetch('/soothdeck.json')
+  const res = await fetch(`${base}/soothdeck.json`)
   cards.value = await res.json()
 })
 </script>
