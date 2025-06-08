@@ -61,7 +61,7 @@ function openModal(card: any) {
 
 onMounted(async () => {
   if (process.client) {
-    const res = await fetch(`${base}/soothdeck.json`)
+    const res = await fetch(`${base}/soothdeck/soothdeck.json`)
     cards.value = await res.json()
   }
 })
