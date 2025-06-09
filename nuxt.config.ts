@@ -11,9 +11,4 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/invisiblesun/",
   },
-  nitro: {
-    prerender: {
-      routes: ['/sitemap.xml']
-    }
-  }
 })
