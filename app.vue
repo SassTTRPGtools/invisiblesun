@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <Menu />
-    <div class="ml-48">
+  <div class="bg-gray-900 min-h-screen">
+    <Menu />    <!-- 桌面版：左側邊欄，主內容右移 -->
+    <div class="lg:ml-48 ml-0 mb-16 lg:mb-0">
       <NuxtPage />
     </div>
   </div>

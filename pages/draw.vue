@@ -1,30 +1,30 @@
 <template>
-  <div class="flex flex-col items-center justify-center min-h-[70vh]">
-    <h1 class="text-2xl font-bold mb-6">單獨抽牌</h1>
-    <div>
+  <div class="flex flex-col items-center justify-center min-h-[70vh] p-4">
+    <h1 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-white text-center">單獨抽牌</h1>
+    <div class="mb-4">
       <img
         v-if="!drawnCard"
         :src="`${base}/soothdeck/backcover.png`"
         alt="抽牌"
-        class="w-150 h-150 hover:scale-105 transition"
+        class="w-32 h-32 md:w-48 md:h-48 hover:scale-105 transition cursor-pointer rounded-lg shadow-lg"
         @click="drawCard"
       />
       <img
         v-else
         :src="getImage(drawnCard.ori_name)"
         :alt="drawnCard.ori_name"
-        class="w-150 h-150 hover:scale-105 transition hover:scale-105 transition"
+        class="w-32 h-32 md:w-48 md:h-48 hover:scale-105 transition cursor-pointer rounded-lg shadow-lg"
         @click="openModal(drawnCard)"
       />
     </div>
-    <SoothModal :open="showModal" :card="selectedCard" @close="showModal = false" />
     <button
       v-if="drawnCard"
-      class="mt-6 px-4 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700"
+      class="px-4 py-2 md:px-6 md:py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition text-sm md:text-base"
       @click="drawCard"
     >
       再抽一張
     </button>
+    <SoothModal :open="showModal" :card="selectedCard" @close="showModal = false" />
   </div>
 </template>
 
